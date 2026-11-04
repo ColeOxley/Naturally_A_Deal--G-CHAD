@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Account | Naturally a Deal</title>
+</head>
+<body>
+
+  <header>
+    <a href="index.html"><img src="images/logo.png" alt="Naturally a Deal"></a>
+    <nav aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="login.html">Log In</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Create your account</h1>
+
+    <form action="#" method="post">
+
+      <p>Fields marked * are required</p>
+
+      <fieldset>
+        <legend>1. Account details</legend>
+        <p>Tell us who you are and how to reach you about an order.</p>
+
+        <label for="first-name">First name *</label>
+        <input type="text" id="first-name" name="first_name" placeholder="e.g. Avery" required>
+
+        <label for="last-name">Last name *</label>
+        <input type="text" id="last-name" name="last_name" placeholder="e.g. Morgan" required>
+
+        <label for="email">Email address *</label>
+        <input type="email" id="email" name="email" placeholder="avery@example.com" required>
+        <p>We'll send order confirmations here.</p>
+
+        <label for="phone">Phone number *</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+        <p>Only used for time-sensitive order issues.</p>
+
+        <label for="password">Password *</label>
+        <input type="password" id="password" name="password" placeholder="Enter a secure password" minlength="8" required>
+        <p>Use 8+ characters with a number.</p>
+
+        <label for="confirm-password">Confirm password *</label>
+        <input type="password" id="confirm-password" name="confirm_password" placeholder="Re-enter your password" required>
+        <p>Both passwords must match.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Choose your co-op</legend>
+        <p>Your co-op coordinates local ordering, pickup, and community updates.</p>
+
+        <label for="coop-group">Co-op group *</label>
+        <select id="coop-group" name="coop_group" required>
+          <option value="" selected disabled>Select your co-op group</option>
+          <option value="group-1">Group 1</option>
+          <option value="group-2">Group 2</option>
+          <option value="group-3">Group 3</option>
+        </select>
+        <p>Not sure which one? Choose the group closest to your usual pickup area.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Mailing address (Optional)</legend>
+        <p>Useful for receipts and products that may ship directly. You can add this later.</p>
+
+        <label for="address1">Address line 1</label>
+        <input type="text" id="address1" name="address1" placeholder="Street address">
+
+        <label for="address2">Address line 2 (Apartment, suite, unit, etc.)</label>
+        <input type="text" id="address2" name="address2">
+
+        <label for="city">City (Optional)</label>
+        <input type="text" id="city" name="city" placeholder="City">
+
+        <label for="state">State (Optional)</label>
+        <input type="text" id="state" name="state" placeholder="State">
+
+        <label for="zip">ZIP code (Optional)</label>
+        <input type="text" id="zip" name="zip" placeholder="ZIP">
+      </fieldset>
+
+      <p>
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the <a href="terms.html">Terms of Use</a> and <a href="privacy.html">Privacy Policy</a></label>
+      </p>
+      <p>You can unsubscribe from non-essential updates at any time.</p>
+
+      <p>
+        <input type="checkbox" id="not-robot" name="not_robot" required>
+        <label for="not-robot">I'm not a robot</label>
+      </p>
+      <p>Security verification</p>
+
+      <button type="submit">Create my account →</button>
+      <a href="login.html">Log in instead</a>
+
+      <p>By creating an account, you agree to our Terms of Use and acknowledge our Privacy Policy.</p>
+
+      <ul>
+        <li>Secure sign-up</li>
+        <li>No spam</li>
+        <li>Community run</li>
+      </ul>
+
+    </form>
+  </main>
+
+  <footer>
+    <p>Naturally a Deal</p>
+    <p>Good food, shared fairly.</p>
+
+    <nav aria-label="Footer">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="help.html">Help center</a>
+      <a href="mailto:hello@naturallyadeal.com">hello@naturallyadeal.com</a>
+    </nav>
+
+    <p>© 2026 Naturally a Deal. Built for local co-op communities.</p>
+  </footer>
+
+</body>
+</html>
