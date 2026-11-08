@@ -1,0 +1,424 @@
+/* =========================================
+   products.css — Naturally a Deal
+   ========================================= */
+
+/* ---------- Variables ---------- */
+:root {
+  --green-dark: #2b4a2c;
+  --green-mid: #3b5f3c;
+  --green-light: #6ab36b;
+  --gold: #c8932e;
+  --bg: #f4f4ee;
+  --card-bg: #ffffff;
+  --text: #1c1c1c;
+  --text-muted: #6b6b6b;
+  --radius: 14px;
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ---------- Reset / base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.4;
+
+  /* Page layout: header on top, sidebar left, content right */
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-areas:
+    "header header"
+    "aside  main";
+  align-items: start;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- Header ---------- */
+header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 24px;
+  background: var(--green-dark);
+  color: #fff;
+}
+
+header > a img {
+  height: 44px;
+  width: auto;
+}
+
+/* Search box */
+header form {
+  flex: 0 1 420px;
+  margin-right: auto;
+  margin-left: 8px;
+}
+
+/* Hide the label text visually but keep it for screen readers */
+header form label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+header input[type="search"] {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+header input[type="search"]:focus {
+  outline: 3px solid var(--green-light);
+}
+
+/* Header nav */
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.9rem;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* "Products" link looks bold because it is the current page */
+header nav a:nth-of-type(1) {
+  font-weight: 700;
+}
+
+/* Cart link styled as a gold pill */
+header nav a:nth-of-type(3) {
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: var(--gold);
+  font-weight: 700;
+}
+
+header nav a:nth-of-type(3):hover {
+  text-decoration: none;
+  filter: brightness(1.08);
+}
+
+header nav span {
+  font-size: 0.8rem;
+}
+
+header nav span a {
+  text-decoration: underline;
+}
+
+/* ---------- Sidebar ---------- */
+aside {
+  grid-area: aside;
+  padding: 24px 0 24px 24px;
+}
+
+aside nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+aside details {
+  background: var(--green-dark);
+}
+
+aside summary {
+  position: relative;
+  padding: 10px 40px 10px 10px;
+  color: #fff;
+  font-size: 1.05rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+aside summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron */
+aside summary::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+aside details[open] > summary {
+  background: var(--green-mid);
+}
+
+aside details[open] > summary::after {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+aside summary:hover {
+  background: var(--green-mid);
+}
+
+/* Sub-list (Sugar, Product Name...) */
+aside ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--green-light);
+}
+
+aside ul li a {
+  display: block;
+  padding: 9px 10px;
+  color: #fff;
+  font-size: 0.95rem;
+  border-bottom: 2px solid var(--bg);
+}
+
+aside ul li:last-child a {
+  border-bottom: none;
+}
+
+aside ul li a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+aside ul li a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ---------- Main content ---------- */
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 24px;
+  row-gap: 16px;
+  padding: 24px;
+}
+
+main h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+/* Dry / Frozen / Refrigerated filter links */
+main > nav {
+  display: flex;
+  gap: 32px;
+  font-size: 0.85rem;
+}
+
+main > nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Product grid ---------- */
+main > section {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* ---------- Product card ---------- */
+article {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-areas:
+    "title   tag"
+    "image   details"
+    "image   button";
+  column-gap: 16px;
+  row-gap: 10px;
+  padding: 14px 18px 18px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--green-dark);
+  border-radius: var(--radius);
+}
+
+article h2 {
+  grid-area: title;
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--green-dark);
+}
+
+/* "Dry" tag */
+article > p {
+  grid-area: tag;
+  justify-self: end;
+  align-self: start;
+  margin: 0;
+  padding: 1px 12px;
+  border: 1px solid var(--green-dark);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+article img {
+  grid-area: image;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  padding: 5px;
+  background: var(--green-dark);
+  border-radius: 4px;
+}
+
+article dl {
+  grid-area: details;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  column-gap: 12px;
+  margin: 0;
+}
+
+article dt {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+article dd {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+article dt:nth-of-type(1) { grid-area: 1 / 1; }
+article dd:nth-of-type(1) { grid-area: 2 / 1; }
+article dt:nth-of-type(2) { grid-area: 1 / 2; }
+article dd:nth-of-type(2) { grid-area: 2 / 2; }
+article dt:nth-of-type(3) { grid-area: 3 / 1; }
+article dd:nth-of-type(3) { grid-area: 4 / 1; }
+article dt:nth-of-type(4) { grid-area: 3 / 2; }
+article dd:nth-of-type(4) { grid-area: 4 / 2; }
+
+article button {
+  grid-area: button;
+  align-self: end;
+  justify-self: start;
+  width: 100%;
+  max-width: 145px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 999px;
+  background: var(--green-dark);
+  color: #fff;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+article button:hover {
+  background: var(--green-mid);
+}
+
+article button:active {
+  transform: scale(0.97);
+}
+
+article button:focus-visible {
+  outline: 3px solid var(--green-light);
+  outline-offset: 2px;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1100px) {
+  main > section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 800px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "aside"
+      "main";
+  }
+
+  header {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 10px 16px;
+  }
+
+  header form {
+    order: 3;
+    flex: 1 1 100%;
+    margin: 0;
+  }
+
+  header nav {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  aside {
+    padding: 16px 16px 0;
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  main > nav {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  article {
+    grid-template-columns: 110px 1fr;
+  }
+
+  article img {
+    width: 110px;
+    height: 110px;
+  }
+
+  main > nav {
+    grid-column: 1 / -1;
+  }
+}
