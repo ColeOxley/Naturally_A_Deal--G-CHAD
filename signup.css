@@ -1,0 +1,481 @@
+   @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap");
+
+   :root {
+     --signup-dark: #344930;
+     --signup-accent: #2c4930;
+     --signup-cream: #fcfce5;
+     --signup-panel: #ffffff;
+     --signup-notice: #fbfbe7;
+     --signup-text: #26332b;
+     --signup-muted: #78847d;
+     --signup-outline: #bfc9bf;
+     --signup-divider: #d8dcd7;
+     --signup-radius: 20px;
+   }
+   
+   *, *::before, *::after { box-sizing: border-box; }
+   html { scroll-behavior: smooth; }
+   
+   body {
+     margin: 0;
+     background: var(--signup-cream);
+     color: var(--signup-text);
+     font-family: "DM Sans", Arial, sans-serif;
+     font-size: 14px;
+     line-height: 1.5;
+   }
+   
+   a { color: inherit; text-decoration: none; }
+   button, input, select { font: inherit; }
+   
+   button { cursor: pointer; }
+   
+   /* Header ---------------------------------------------------- */
+   
+   body > header {
+     width: 100%;
+     min-height: 72px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 24px;
+     padding: 10px max(45px, calc((100vw - 1270px) / 2));
+     background: var(--signup-dark);
+     color: #fff;
+   }
+   
+   header > a {
+     display: block;
+     width: 155px;
+     height: 51px;
+     background: url("https://naturallyadeal.com/wp-content/uploads/2025/04/Naturally-a-Deal-logo-white.webp")
+                 left center / contain no-repeat;
+   }
+   
+   header > a > img {
+     display: block;
+     height: 1px;
+     width: 1px;
+     opacity: 0;
+   }
+   
+   header nav[aria-label="Main"] {
+     display: flex;
+     align-items: center;
+     gap: 32px;
+     font-size: 13px;
+   }
+   
+   header nav a:hover { text-decoration: underline; }
+   
+   header nav a[href="index.html"] { display: none; }
+   
+   header nav a[href="login.html"] {
+     min-width: 68px;
+     padding: 8px 17px;
+     border: 1px solid #aaa35b;
+     border-radius: 999px;
+     text-align: center;
+     font-size: 12px;
+     font-weight: 700;
+   }
+   
+   header nav a[href="login.html"]:hover {
+     text-decoration: none;
+     background: #ffffff18;
+   }
+   
+   /* Main title and outer form card ---------------------------- */
+   
+   body > main {
+     width: min(calc(100% - 64px), 966px);
+     margin: 28px auto 72px;
+   }
+   
+   main > h1 {
+     margin: 0 0 23px;
+     color: var(--signup-accent);
+     text-align: center;
+     font-family: "Libre Caslon Display", Georgia, serif;
+     font-size: clamp(44px, 5.7vw, 65px);
+     line-height: 1.2;
+     font-weight: 400;
+     letter-spacing: -0.02em;
+   }
+   
+   main > form {
+     padding: 31px;
+     background: var(--signup-panel);
+     border: 1px solid #d9dfda;
+     border-radius: var(--signup-radius);
+     box-shadow: 0 3px 12px rgba(37, 59, 39, 0.025);
+   }
+   
+   /* Pale-yellow information strip above the form fields */
+   main > form > p:first-of-type {
+     position: relative;
+     display: flex;
+     align-items: center;
+     min-height: 36px;
+     margin: 0 0 26px;
+     padding: 8px 13px 8px 36px;
+     border-radius: 8px;
+     background: var(--signup-notice);
+     color: #687b6a;
+     font-size: 11px;
+   }
+   
+   main > form > p:first-of-type::before {
+     content: "ⓘ";
+     position: absolute;
+     left: 12px;
+     top: 50%;
+     transform: translateY(-50%);
+     color: #3c5c40;
+     font-size: 16px;
+     font-weight: bold;
+   }
+   
+   main > form > p:first-of-type::after {
+     content: ". It usually takes less than 3 minutes.";
+     margin-left: 3px;
+   }
+   
+   /* Each existing <fieldset> becomes a clean section --------- */
+   
+   main fieldset {
+     min-width: 0;
+     margin: 0;
+     padding: 2px 0 27px;
+     border: 0;
+     border-bottom: 1px solid var(--signup-divider);
+   }
+   
+   main fieldset + fieldset { padding-top: 27px; }
+   
+   main fieldset legend {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     width: 100%;
+     padding: 0;
+     margin: 0;
+     color: var(--signup-text);
+     font-size: 0; 
+   }
+   
+   main fieldset legend::before {
+     display: grid;
+     place-items: center;
+     flex: 0 0 25px;
+     width: 25px;
+     height: 25px;
+     border-radius: 50%;
+     background: var(--signup-accent);
+     color: #fff;
+     font: 700 12px "DM Sans", sans-serif;
+   }
+   
+   main fieldset:nth-of-type(1) legend::before { content: "1"; }
+   main fieldset:nth-of-type(2) legend::before { content: "2"; }
+   main fieldset:nth-of-type(3) legend::before { content: "3"; }
+   
+   main fieldset legend::after {
+     display: inline-block;
+     font: 500 16px "DM Sans", Arial, sans-serif;
+   }
+   
+   main fieldset:nth-of-type(1) legend::after { content: "Account details"; }
+   main fieldset:nth-of-type(2) legend::after { content: "Choose your co-op"; }
+   main fieldset:nth-of-type(3) legend::after { content: "Mailing address  ·  Optional"; }
+   
+   main fieldset > p {
+     margin: 0;
+     color: var(--signup-muted);
+     font-size: 11px;
+   }
+   
+   main fieldset > p:first-of-type {
+     margin: 0 0 18px 37px;
+   }
+   
+   main fieldset label {
+     display: block;
+     color: var(--signup-text);
+     font-size: 12px;
+     font-weight: 500;
+   }
+   
+   main fieldset input,
+   main fieldset select {
+     display: block;
+     width: 100%;
+     height: 43px;
+     min-width: 0;
+     padding: 0 12px;
+     border: 1px solid var(--signup-outline);
+     border-radius: 7px;
+     outline: none;
+     color: var(--signup-text);
+     background: white;
+     font-size: 13px;
+     transition: border-color .15s, box-shadow .15s;
+   }
+   
+   main fieldset input::placeholder { color: #99a39b; }
+   
+   main fieldset input:focus,
+   main fieldset select:focus {
+     border-color: #517b56;
+     box-shadow: 0 0 0 3px #517b5621;
+   }
+   
+   main fieldset input:invalid:not(:placeholder-shown) {
+     border-color: #c07768;
+   }
+   
+
+   main fieldset:nth-of-type(1) {
+     display: grid;
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+     column-gap: 14px;
+     row-gap: 7px;
+   }
+   
+   main fieldset:nth-of-type(1) > legend,
+   main fieldset:nth-of-type(1) > p:first-of-type { grid-column: 1 / -1; }
+   
+   main fieldset:nth-of-type(1) > label[for="first-name"]    { grid-column: 1; grid-row: 3; }
+   main fieldset:nth-of-type(1) > input#first-name           { grid-column: 1; grid-row: 4; }
+   main fieldset:nth-of-type(1) > label[for="last-name"]     { grid-column: 2; grid-row: 3; }
+   main fieldset:nth-of-type(1) > input#last-name            { grid-column: 2; grid-row: 4; }
+   
+   main fieldset:nth-of-type(1) > label[for="email"]         { grid-column: 1; grid-row: 5; }
+   main fieldset:nth-of-type(1) > input#email                { grid-column: 1; grid-row: 6; }
+   main fieldset:nth-of-type(1) > label[for="phone"]         { grid-column: 2; grid-row: 5; }
+   main fieldset:nth-of-type(1) > input#phone                { grid-column: 2; grid-row: 6; }
+   main fieldset:nth-of-type(1) > p:nth-of-type(2)           { grid-column: 1; grid-row: 7; }
+   main fieldset:nth-of-type(1) > p:nth-of-type(3)           { grid-column: 2; grid-row: 7; }
+   
+   main fieldset:nth-of-type(1) > label[for="password"]      { grid-column: 1; grid-row: 8; }
+   main fieldset:nth-of-type(1) > input#password             { grid-column: 1; grid-row: 9; }
+   main fieldset:nth-of-type(1) > label[for="confirm-password"] { grid-column: 2; grid-row: 8; }
+   main fieldset:nth-of-type(1) > input#confirm-password     { grid-column: 2; grid-row: 9; }
+   main fieldset:nth-of-type(1) > p:nth-of-type(4)           { grid-column: 1; grid-row: 10; }
+   main fieldset:nth-of-type(1) > p:nth-of-type(5)           { grid-column: 2; grid-row: 10; }
+   
+   /* Rows 3, 5 and 8 are label rows. */
+   main fieldset:nth-of-type(1) > label[for="email"],
+   main fieldset:nth-of-type(1) > label[for="phone"],
+   main fieldset:nth-of-type(1) > label[for="password"],
+   main fieldset:nth-of-type(1) > label[for="confirm-password"] {
+     margin-top: 11px;
+   }
+   
+   /* Co-op section --------------------------------------------- */
+   
+   main fieldset:nth-of-type(2) label,
+   main fieldset:nth-of-type(3) label { margin: 0 0 6px; }
+   
+   main fieldset:nth-of-type(2) select {
+     height: 43px;
+     cursor: pointer;
+     color: #7c8980;
+   }
+   
+   main fieldset:nth-of-type(2) > p:last-of-type {
+     margin-top: 7px;
+   }
+   
+   /* Mailing address ------------------------------------------- */
+   
+   main fieldset:nth-of-type(3) label { margin-top: 17px; }
+   
+   main fieldset:nth-of-type(3) > p:first-of-type { margin-bottom: 14px; }
+   
+   main fieldset:nth-of-type(3) input { margin-bottom: 3px; }
+   
+   /* Agreement/verification below the fieldsets ---------------- */
+   
+   main > form > p:has(> input[type="checkbox"]) {
+     display: flex;
+     align-items: flex-start;
+     gap: 11px;
+     margin: 21px 0 4px;
+     color: var(--signup-text);
+     font-size: 13px;
+   }
+   
+   main > form > p input[type="checkbox"] {
+     flex: 0 0 auto;
+     width: 16px;
+     height: 16px;
+     margin: 2px 0 0;
+     accent-color: var(--signup-accent);
+   }
+   
+   main > form > p label a,
+   main > form > p:last-of-type a { color: #366b46; text-decoration: underline; }
+   
+   main > form > p:nth-of-type(3),
+   main > form > p:nth-of-type(5) {
+     margin: 0 0 0 27px;
+     color: var(--signup-muted);
+     font-size: 11px;
+   }
+   
+   main > form > button[type="submit"] {
+     width: 100%;
+     min-height: 46px;
+     margin-top: 22px;
+     padding: 12px 18px;
+     border: 0;
+     border-radius: 7px;
+     background: var(--signup-accent);
+     color: #fff;
+     font-size: 14px;
+     font-weight: 700;
+   }
+   
+   main > form > button[type="submit"]:hover { background: #406749; }
+   
+   main > form > a[href="login.html"] {
+     display: block;
+     width: fit-content;
+     margin: 13px auto;
+     color: var(--signup-accent);
+     font-size: 13px;
+     font-weight: 700;
+     text-decoration: underline;
+   }
+   
+   main > form > p:nth-of-type(6) {
+     margin: 16px 0 8px;
+     color: var(--signup-muted);
+     text-align: center;
+     font-size: 11px;
+   }
+   
+   main > form > ul {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 24px;
+     flex-wrap: wrap;
+     margin: 14px 0 0;
+     padding: 0;
+     list-style: none;
+     color: #55735a;
+     font-size: 12px;
+   }
+   
+   main > form > ul li::before { content: "✓ "; color: #377244; font-weight: 700; }
+   
+   /* Footer ---------------------------------------------------- */
+   
+   body > footer {
+     position: relative;
+     display: grid;
+     grid-template-columns: minmax(0,1fr) auto;
+     column-gap: 20px;
+     width: 100%;
+     padding: 19px max(42px, calc((100vw - 1270px) / 2)) 24px;
+     background: var(--signup-dark);
+     color: #f2f4e6;
+   }
+   
+   body > footer > p:first-of-type {
+     grid-column: 1;
+     grid-row: 1;
+     margin: 0;
+     font: italic 22px Georgia, serif;
+   }
+   
+   body > footer > p:nth-of-type(2) {
+     grid-column: 1;
+     grid-row: 2;
+     margin: 4px 0 11px;
+     color: #cad7c6;
+     font-size: 12px;
+   }
+   
+   body > footer nav[aria-label="Footer"] {
+     grid-column: 2;
+     grid-row: 1 / span 2;
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 27px;
+     font-size: 11px;
+   }
+   
+   body > footer nav a:hover { text-decoration: underline; }
+   
+   body > footer nav a[href^="mailto:"]::before {
+     content: "✉";
+     display: inline-block;
+     margin-right: 8px;
+     font-size: 17px;
+     vertical-align: -1px;
+   }
+   
+   body > footer > p:last-of-type {
+     grid-column: 1 / -1;
+     margin: 0;
+     padding-top: 12px;
+     border-top: 1px solid #d2d8ad;
+     color: #aebdab;
+     font-size: 11px;
+   }
+   
+   /* Responsive ------------------------------------------------ */
+   
+   @media (max-width: 740px) {
+     body > header { padding: 10px 20px; }
+     header > a { width: 115px; height: 43px; }
+     header nav[aria-label="Main"] { gap: 15px; }
+     body > main { width: calc(100% - 30px); margin-top: 24px; }
+     main > h1 { font-size: clamp(40px, 8vw, 52px); }
+     main > form { padding: 20px; }
+     body > footer { padding: 22px 20px; grid-template-columns: 1fr; }
+     body > footer nav[aria-label="Footer"] {
+       grid-column: 1;
+       grid-row: 3;
+       justify-content: flex-start;
+       gap: 16px;
+       margin-bottom: 17px;
+     }
+     body > footer > p:last-of-type { grid-row: 4; }
+   }
+   
+   @media (max-width: 600px) {
+     /* On phones, restore a normal single-column field flow. */
+     main fieldset:nth-of-type(1) {
+       display: block;
+     }
+     main fieldset:nth-of-type(1) > label {
+       margin: 12px 0 5px !important;
+     }
+     main fieldset:nth-of-type(1) > input { margin-bottom: 6px; }
+     main fieldset:nth-of-type(1) > p:not(:first-of-type) { margin: 0 0 9px; }
+     main fieldset:nth-of-type(1) > p:first-of-type { margin-bottom: 17px; }
+     main fieldset legend { margin-bottom: 0; }
+     main fieldset legend::after { font-size: 14px; }
+     main > form > ul { gap: 12px; }
+   }
+   
+   @media (max-width: 430px) {
+     body > header { gap: 12px; }
+     header > a { width: 96px; }
+     header nav[aria-label="Main"] { gap: 10px; font-size: 12px; }
+     header nav a[href="login.html"] { padding: 7px 12px; }
+     main > form { padding: 15px; border-radius: 13px; }
+     main > h1 { font-size: 39px; }
+     main fieldset:nth-of-type(3) legend::after { font-size: 12px; }
+     main > form > p:first-of-type { display: block; }
+   }
+   
+   /* Match the reference heading's ending punctuation. */
+   main > h1::after { content: "!"; }
+   
